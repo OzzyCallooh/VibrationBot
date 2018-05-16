@@ -1,4 +1,6 @@
 # VibrationBot
+![VibrationBot's profile picture](botpic.png)
+
 VibrationBot is a Telegram bot that vibrates images. You can access the bot at [@VibrationBot](http://t.me/VibrationBot).
 
 ## How to Use
@@ -8,9 +10,10 @@ In your favorite Telegram client, [open a chat](http://t.me) with the bot. Then,
 * **/help**: Display help text for using the bot.
 * **/about**: Display about text for more information.
 
-* Make sure the image dimensions are from 80px to 1000px.
-* By default, the bot will vibrate on 4 corners.
-* Caption the image `h` or `v` (just a single, lower-case letter) to instead vibrate horizontally or vertically.
+Here's some extra tips for when you're sending a photo for vibration:
+
+* Make sure both image dimensions are from 80px to 1000px.
+* By default, the bot will vibrate on 4 corners. Caption your photo `h` or `v` (just a single, lower-case letter) to instead vibrate horizontally or vertically.
 
 ## Dependencies
 The bot runs on [Python 3](http://python.org) and some libraries. Install the following using `pip install <name>`:
