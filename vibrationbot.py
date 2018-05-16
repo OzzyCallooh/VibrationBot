@@ -110,7 +110,7 @@ def main():
 
 	logging.basicConfig(
 		format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-		level=logging.DEBUG
+		level=logging.DEBUG if config['debug_mode'] else logging.INFO
 	)
 
 	print('[vibrations start]')
