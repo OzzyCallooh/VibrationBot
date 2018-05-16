@@ -1,0 +1,12 @@
+{
+	"lock_file__COMMENT__": "A file to use for the inter-process lock.",
+	"lock_file": "VibrationBot.lock",
+
+	"debug_mode__COMMENT__": "Logging level",
+	"debug_mode": false,
+
+	"telegram": {
+		"token__COMMENT__": "The Telegram bot token provited by the BotFather.",
+		"token": ""
+	}
+}
