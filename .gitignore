@@ -1,6 +1,7 @@
 # VibrationBot ignores
 *.config.json
 !sample.config.json
+*.lock
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
