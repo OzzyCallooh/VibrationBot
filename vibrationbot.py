@@ -14,46 +14,31 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from config import config
 import vibrate
 
-if len(sys.argv) < 2:
-	print('Format: python ' + sys.argv[0] + ' <token>')
-	sys.exit()
-
-MIN_SIZE = 80
-MAX_SIZE = 2000
-
-MESSAGE_START = 'Hi there! Send me an image to vibrate. Use /help for more information.'
-MESSAGE_HELP = 'To vibrate an image, send it to me. Images dimensions must be at least {min_size} px and at most {max_size} px. Caption your image \'v\' or \'h\' to vibrate only horizontally or vertically.'.format(min_size=MIN_SIZE, max_size=MAX_SIZE)
-MESSAGE_ABOUT = 'This bot was made by @OzzyC. Please don\'t overuse it, and send questions/comments/concerns to @OzzyC.'
-ERROR_BAD_DIMENSIONS = 'Sorry, images dimensions must be between {min_size} and {max_size} px. The image you sent is {width} by {height} pixels.'
+MIN_SIZE = config['vibration']['min_size_px']
+MAX_SIZE = config['vibration']['max_size_px']
 
 def positive_input_message():
-	return random.choice([
-		'Looking good, mate!',
-		'Awesome!'
-	])
+	return random.choice(config['text']['positive_input'])
 
 def please_wait_message():
-	return random.choice([
-		'Intensifing image, one moment please!',
-		'Making image more intense, please wait!',
-		'Vibrating image, one second please!',
-		'Increasing intensity, please wait!',
-	])
+	return random.choice(config['text']['please_wait'])
 
 def command_start(bot, update):
-	update.message.reply_text(MESSAGE_START)
+	update.message.reply_text(config['text']['commands']['start'])
 
 def command_help(bot, update):
-	update.message.reply_text(MESSAGE_HELP)
+	update.message.reply_text(config['text']['commands']['help'].format(
+		min_size=MIN_SIZE, max_size=MAX_SIZE,
+	))
 
 def command_about(bot, update):
-	update.message.reply_text(MESSAGE_ABOUT)
+	update.message.reply_text(config['text']['commands']['about'])
 
 def handler_photo(bot, update):
 	photo_size =update.message.photo[-1]
 
 	if photo_size.width < MIN_SIZE or photo_size.height < MIN_SIZE:
-		update.message.reply_text(ERROR_BAD_DIMENSIONS.format(
+		update.message.reply_text(config['text']['error']['bad_dimensions'].format(
 			min_size=MIN_SIZE, max_size=MAX_SIZE,
 			width=photo_size.width, height=photo_size.height
 		))
@@ -90,7 +75,7 @@ def handler_photo(bot, update):
 	bot.sendChatAction(chat_id=update.message.chat_id, action=telegram.ChatAction.UPLOAD_VIDEO)
 	update.message.reply_video(video=open(filename_result, 'rb'))
 	update.message.reply_text(
-		'Here is your intensified photo. Mode: {mode}, Distance: {distance} px'.format(
+		config['text']['result'].format(
 			mode=vibration_mode,
 			distance=vibration_dist
 		)

@@ -8,5 +8,44 @@
 	"telegram": {
 		"token__COMMENT__": "The Telegram bot token provited by the BotFather.",
 		"token": ""
+	},
+
+	"vibration": {
+		"min_size_px": 80,
+		"max_size_px": 1000
+	},
+
+	"text": {
+		"result__COMMENT__": "The string to use in result message",
+		"result": "Here is your intensified photo. Mode: {mode}, Distance: {distance} px",
+
+		"commands": {
+			"start__COMMENT__": "Text to send when the /start command is used.",
+			"start": "Hi there! Send me an image to vibrate. Use /help for more information.",
+
+			"help__COMMENT__": "Text to send when the /help command is used.",
+			"help": "To vibrate an image, send it to me. Image dimensions must be at least {min_size} px and at most {max_size} px. Caption your image 'h' or 'v' to vibrate only horizontally or vertically.",
+
+			"about__COMMENT__": "Text to send when the /about command is used.",
+			"about": "This bot was made by @OzzyC. Please don't overuse it! Direct your questions/comments/concerns to @OzzyC."
+		},
+
+		"positive_input__COMMENT__": "Some strings to use for OK input",
+		"positive_input": [
+			"Looking good, mate!",
+			"Awesome!"
+		],
+
+		"please_wait__COMMENT__": "Some progress messages before the result is sent",
+		"please_wait": [
+			"Intensifing image, one moment please!",
+			"Making image more intense, please wait!",
+			"Vibrating image, one second please!",
+			"Increasing intensity, please wait!"
+		],
+
+		"error": {
+			"bad_dimensions": "Sorry, images dimensions must be between {min_size} and {max_size} pixels. The image you sent is {width} by {height} pixels."
+		}
 	}
 }

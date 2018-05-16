@@ -14,7 +14,20 @@ config_fields = [
 	'lock_file',
 	'debug_mode',
 	'telegram',
-	'telegram.token'
+	'telegram.token',
+	'vibration',
+	'vibration.min_size_px',
+	'vibration.max_size_px',
+	'text',
+	'text.result',
+	'text.commands',
+	'text.commands.start',
+	'text.commands.help',
+	'text.commands.about',
+	'text.positive_input',
+	'text.please_wait',
+	'text.error',
+	'text.error.bad_dimensions'
 ]
 
 config_filename = 'config.json'
