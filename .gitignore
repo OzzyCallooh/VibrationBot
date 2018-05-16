@@ -2,6 +2,7 @@
 *.config.json
 !sample.config.json
 *.lock
+*.out
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
